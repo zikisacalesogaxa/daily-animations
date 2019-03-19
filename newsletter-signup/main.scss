@@ -1,0 +1,186 @@
+$red: rgb(255, 111, 104);
+$red2: rgba(255, 111, 104, 0.8);
+$white: #fafafa;
+$white2: rgba(255, 255, 255, 0.4);
+body {
+    background: $red;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: $red;
+}
+
+* {
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+main, #notify-me-btn {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+    #notify-me-btn {
+        width: 200px;
+        height: 70px;
+        color: $red;
+        z-index: 9999;
+        top: 0%;
+        background: $white;
+    }
+
+    div.animated-form {
+        background: $white;
+        padding: 10px;
+        border-radius: 50px;
+        vertical-align: middle;
+        position: relative;
+        height: 50px;
+        width: 374px;
+        h2 {
+            color: $red;
+            position: absolute;
+            top: 2px;
+            letter-spacing: 0.1em;
+    
+            &#email-title {
+                opacity: 0.5;
+                left: 30px;
+            }
+    
+            &#notify-me-title {
+                left: 40%;
+                display: none;
+            }
+    
+            &#thank-you-title {
+                display: flex !important;
+                visibility: hidden;
+                left: 23%;
+                justify-content: center;
+            }
+        }
+    }
+    
+    input[type=email]:focus,
+    input[type=email]:active,
+    button:focus,
+    button:active {
+        outline: none;
+    }
+    
+    input[type=email],
+    button {
+        border: none;
+    }
+    
+    input[type=email] {
+        background: $white;
+        font-size: 24px;
+        line-height: 16px;
+        border: none;
+        padding: 10px 20px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        color: transparent;
+        text-shadow: 0 0 0 $red2;
+    }
+    
+    button {
+        cursor: pointer;
+        font-size: 24px;
+        height: 50px;
+        color: $white2;
+        border-radius: 50px;
+        margin-left: -5px;
+        width: 100px;
+        background: $red2;
+        &:hover {
+            transform: scale(0.95)
+        }
+    
+        &.active {
+            color: white;
+        }
+    }
+    
+    @keyframes zoom-out {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            transform: scale(0);
+            display: none;
+        }
+    }
+    
+    @keyframes zoom-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            visibility: visible;
+        }
+    }
+    
+    @keyframes shrink {
+        to {
+            width: 200px;
+        }
+    }
+
+    @keyframes grow {
+        from {
+            width: 200px;
+        }
+    }
+    
+    .hidden,
+    .submit {
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        animation-fill-mode: both;
+        animation-name: zoom-out;
+    }
+    
+    .show {
+        animation-delay: 0.5s;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        animation-fill-mode: both;
+        animation-name: zoom-in;
+        visibility: visible;
+    }
+    
+    .shrink {
+        animation-delay: 0.5s;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        animation-fill-mode: both;
+        animation-name: shrink;
+    }
+
+    .grow {
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        animation-fill-mode: both;
+        animation-name: grow;
+    }
+    
+    .d-none {
+        display: none;
+    }
+}
+
