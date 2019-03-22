@@ -1,0 +1,131 @@
+* {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@-webkit-keyframes red-glitch {
+  0% {
+    left: 7px;
+  }
+  50% {
+    left: -7px;
+  }
+  75% {
+    top: -2px;
+  }
+  100% {
+    left: 7px;
+  }
+}
+
+@keyframes red-glitch {
+  0% {
+    left: 7px;
+  }
+  50% {
+    left: -7px;
+  }
+  75% {
+    top: -2px;
+  }
+  100% {
+    left: 7px;
+  }
+}
+
+@-webkit-keyframes blue-glitch {
+  0% {
+    left: -7px;
+  }
+  50% {
+    left: 7px;
+  }
+  75% {
+    top: 4px;
+  }
+  100% {
+    left: -7px;
+  }
+}
+
+@keyframes blue-glitch {
+  0% {
+    left: -7px;
+  }
+  50% {
+    left: 7px;
+  }
+  75% {
+    top: 4px;
+  }
+  100% {
+    left: -7px;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #25014d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  right: 0;
+  left: 0;
+}
+
+main div {
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+main div.white-g {
+  background-color: white;
+  position: absolute;
+  z-index: 9999;
+}
+
+main div.blue-g {
+  background-color: blue;
+  position: absolute;
+}
+
+main div.blue-g.animate {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: blue-glitch;
+          animation-name: blue-glitch;
+}
+
+main div.red-g {
+  background-color: red;
+  position: absolute;
+}
+
+main div.red-g.animate {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: red-glitch;
+          animation-name: red-glitch;
+}
+/*# sourceMappingURL=main.css.map */

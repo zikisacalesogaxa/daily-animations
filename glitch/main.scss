@@ -1,0 +1,93 @@
+$blue: blue;
+$red: red;
+
+* {
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@mixin glitch($color) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-iteration-count: infinite;
+    @if $color==$red {
+        animation-name: red-glitch;
+    }
+    @else if $color==$blue {
+        animation-name: blue-glitch;
+    }
+}
+
+@keyframes red-glitch {
+    0% {
+        left: 7px;
+    }
+    50% {
+        left: -7px;
+    }
+    75% {
+        top: -2px;
+    }
+    100% {
+        left: 7px;
+    }
+}
+
+@keyframes blue-glitch {
+    0% {
+        left: -7px;
+    }
+    50% {
+        left: 7px;
+    }
+    75% {
+        top: 4px;
+    }
+    100% {
+        left: -7px;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: rgb(37, 1, 77);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    left: 0;
+    div {
+        left: 0;
+        right: 0;
+        height: 200px;
+        width: 200px;
+        margin: auto;
+        border-radius: 10px;
+
+        &.white-g {
+            background-color: white;
+            position: absolute;
+            z-index: 9999;
+        }
+        &.blue-g {
+            background-color: $blue;
+            position: absolute;
+            &.animate {
+                @include glitch($blue);
+            }
+        }
+        &.red-g {
+            background-color: $red;
+            position: absolute;
+            &.animate {
+                @include glitch($red);
+            }
+        }
+    }
+}
